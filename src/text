@@ -1,0 +1,25 @@
+<!-- update on signup and login ui -->
+
+
+
+
+ // const SigbupMutation : UseMutationResult<any, Error, SignupFormInputs> = useMutation({
+  //   mutationFn: async (datas: SignupFormInputs) => {
+  //     const response = await Api.post('/user/signup', datas); 
+
+  //     return response.data; 
+  //   },
+  //   onSuccess: (data) => {
+  //     // Handle successful login here (e.g., store token, redirect, etc.)
+  //     console.log('Login successful:', data);
+  //     toast.success('Welcome to the client side!');
+  //     // You can also navigate to another page or set user data
+  //     // For example: router.push('/dashboard');
+  //   },
+  //   onError: (error) => {
+  //     // Handle error response here
+
+  //     console.error('Login failed:', error.message);
+
+  //   },
+  // });
