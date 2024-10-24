@@ -18,8 +18,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { useUserStore } from '@/lib/store/store';
 
 const PostUpload = () => {
+
+  const user = useUserStore((state) => state.user);
+  const userId = user?._id
   const [heading, setHeading] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState<string | null>(null);
@@ -121,7 +125,7 @@ const PostUpload = () => {
         content,
         topics,
         fileUrl: null,
-        
+        userId: userId ?? ''
       };
 
       if (fileImage) {
@@ -137,8 +141,7 @@ const PostUpload = () => {
         }
       }
     }
-  };
-  return (
+  };  return (
     <div className="min-h-screen bg-black flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <form
         onSubmit={handleSubmit}

@@ -24,7 +24,11 @@ const CardsSm: React.FC<CardsSmProps> = ({ isProfilePage = false }) => {
 
   const { mutate: handleDeletePost } = deletePost();
 
-  
+
+  const handleViewPage =(postId: string) => {
+    router.push(`/showBlog/${postId}`);
+
+  } 
 
   const  handlePostDelete = (id:string) => {
     
@@ -32,7 +36,6 @@ const CardsSm: React.FC<CardsSmProps> = ({ isProfilePage = false }) => {
   }
 
   const handleEditPost = (postId: string) => {
-    // Navigate to the edit page with postId
     router.push(`/profile/${postId}`);
   };
 
@@ -40,7 +43,7 @@ const CardsSm: React.FC<CardsSmProps> = ({ isProfilePage = false }) => {
     <>
       {posts && posts.length > 0 && posts.map((item: FetchPostData) => (
        
-         <Card key={item._id} className="bg-black border-none relative">
+         <Card key={item._id} className="bg-black border-none relative " onClick={()=>handleViewPage(item._id)}>
             {isProfilePage && (
             <div className="absolute top-2 right-2 flex space-x-2">
               <button className="text-blue-400 hover:text-red-500">

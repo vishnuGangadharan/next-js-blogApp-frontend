@@ -2,8 +2,15 @@ import { FcLike } from "react-icons/fc";
 import { IoEyeSharp } from "react-icons/io5";
 import { TbLocationShare } from "react-icons/tb";
 import React from "react";
+import { FetchPostData } from "@/Interface/post";
+import { formatDate } from "@/components/validations/fuctions";
 
-const HidePart = () => {
+
+interface HidePartProps {
+  postDetails: FetchPostData | null;
+}
+
+const HidePart: React.FC<HidePartProps> = ({ postDetails }) =>{
   return (
     <div className="w-full p-5 lg:p-5">
       <div className="flex justify-center items-center gap-5 mb-5 text-textRandom font-kumbh py-4">
@@ -25,11 +32,11 @@ const HidePart = () => {
         <div className="flex gap-10 flex-wrap">
           <div>
             <p className="text-textRandom">Publication Dates</p>
-            <p className="text-[14px]">October 15, 2023</p>
+            <p className="text-[14px]">{postDetails && formatDate(postDetails?.createdAt)}</p>
           </div>
           <div>
             <p className="text-textRandom">Category</p>
-            <p className="text-[14px]">Healthcare</p>
+            <p className="text-[14px]">{postDetails && postDetails.Category}</p>
           </div>
         </div>
         <div className="flex gap-10 flex-wrap">
@@ -39,20 +46,22 @@ const HidePart = () => {
           </div>
           <div>
             <p className="text-textRandom">Author Name</p>
-            <p className="text-[14px]">Dr. Emily Walker</p>
+            <p className="text-[14px]">{postDetails && postDetails.userId?.name}</p>
           </div>
         </div>
 
         <div className="bg-inputBackground p">
           <p className="text-textRandom">Table of Contents</p>
           <ul className="list-disc list-inside mt-2 space-y-2 text-[14px] px-2 ">
+            {
+              postDetails && postDetails.topics.map((topic, index) => (
+                <li key={index}>{topic}</li>
+              ))
+            }
+
             <li>Introduction</li>
             <li>AI in Diagnostic Imaging</li>
             <li>Predictive Analytics and Disease Prevention</li>
-            <li>Personalized Treatment Plans</li>
-            <li>Drug Discovery and Research</li>
-            <li>AI in Telemedicine</li>
-            <li>Ethical Considerations</li>
             <li>The Future of AI in Healthcare</li>
             <li>Conclusion</li>
           </ul>

@@ -1,3 +1,5 @@
+import { SignupForm } from "./login";
+
 export interface postData {
     heading : string;
     content : string;
@@ -16,7 +18,7 @@ export interface FetchPostData {
     createdAt: string;
     updatedAt: string;
     Category: string
-
+    userId?:SignupForm
   }
   
 
@@ -26,5 +28,5 @@ export interface FetchPostData {
     topics  : string[];
     fileUrl : string | null;
     Category: string
-
+    userId: string
 }

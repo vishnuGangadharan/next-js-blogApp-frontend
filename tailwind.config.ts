@@ -13,13 +13,13 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
-			inputBackground:'#1A1A1A',
-			customGrayHome:'#666666',
+  			inputBackground: '#1A1A1A',
+  			customGrayHome: '#666666',
   			customYellow: '#FFD11A',
   			customGray: '#404040',
   			inputBg: '#262626',
   			inputText: '#666666',
-			textRandom: '#98989A',
+  			textRandom: '#98989A',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -59,12 +59,22 @@ const config: Config = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
+  			},
+  			sidebar: {
+  				DEFAULT: 'hsl(var(--sidebar-background))',
+  				foreground: 'hsl(var(--sidebar-foreground))',
+  				primary: 'hsl(var(--sidebar-primary))',
+  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+  				accent: 'hsl(var(--sidebar-accent))',
+  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+  				border: 'hsl(var(--sidebar-border))',
+  				ring: 'hsl(var(--sidebar-ring))'
   			}
   		},
   		fontFamily: {
   			kumbh: ['Kumbh Sans', 'sans-serif'],
   			inter: ['Inter', 'sans-serif'],
-			lato: ['Lato', 'sans-serif'],
+  			lato: ['Lato', 'sans-serif']
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

@@ -1,6 +1,7 @@
 import axios from "axios";
 import errorHandler from "@/api/error";
 import { toast } from 'react-toastify';
+import Cookies from 'js-cookie';
 
 const BASE_URL =  'http://localhost:3008/api'
 // 'http://localhost:3008/api',   import.meta.env.VITE_API
@@ -28,8 +29,10 @@ Api.interceptors.response.use(
 Api.interceptors.request.use(
     (config) => {
         console.log('axios request config', config);
-        const token = localStorage.getItem("token");
+        const token = Cookies.get('authToken'); 
+        console.log('token from cookies',token);
         
+                
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }
